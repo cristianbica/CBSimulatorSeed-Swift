@@ -8,18 +8,103 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-                            
+class ViewController: UITableViewController, EDQueueDelegate {
+
+  @IBOutlet var deleteContactsSwitch : UISwitch
+  @IBOutlet var contactsCountLabel : UILabel
+  @IBOutlet var contactsSlider : UISlider
+  @IBOutlet var photosCountLabel : UILabel
+  @IBOutlet var photosSlider : UISlider
+  
+  var totalJobs : Int = 0
+  var doneJobs : Int = 0
+  
+  @IBAction func contactsCountSliderValueChanged(sender : AnyObject) {
+    var val = roundf(self.contactsSlider.value)
+    contactsSlider.value = val
+    contactsCountLabel.text = String(Int(val))
+  }
+  
+  @IBAction func photosCountSliderValueChanged(sender : AnyObject) {
+    var val = roundf(self.photosSlider.value)
+    photosSlider.value = val
+    photosCountLabel.text = String(Int(val))
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    EDQueue.sharedInstance().delegate = self
+    EDQueue.sharedInstance().empty()
+    EDQueue.sharedInstance().start()
+    NSNotificationCenter.defaultCenter().addObserverForName(EDQueueJobDidSucceed, object: nil, queue: nil, usingBlock:{
+      (notification: NSNotification!) -> () in
+      let jobTask : String = notification.object.valueForKey("task") as String
+      switch  jobTask {
+      case "seed":
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskTypeGradient)
+        self.totalJobs = self.deleteContactsSwitch.on ? 1 : 0
+        self.totalJobs += Int(self.contactsSlider.value)
+        self.totalJobs += Int(self.photosSlider.value)
+        self.doneJobs = 0
+      case "seed_done":
+        SVProgressHUD.dismiss()
+      default:
+        self.doneJobs++
+        SVProgressHUD.showProgress(Float(self.doneJobs) / Float(self.totalJobs),
+          status: "Task \(self.doneJobs) of \(self.totalJobs)",
+          maskType: SVProgressHUDMaskTypeGradient)
+      }
+    })
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  
+  override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    if tableView.cellForRowAtIndexPath(indexPath).tag == 501 {
+      seed()
+    }
   }
-
-
+  
+  func seed() {
+    var ab:RHAddressBook = RHAddressBook();
+    ab.requestAuthorizationWithCompletion({
+      (granted: Bool, error: NSError!) -> () in
+      if granted {
+        var data = [
+          "delete-contacts": Int(self.deleteContactsSwitch.on),
+          "contacts": Int(self.contactsSlider.value),
+          "photos": Int(self.photosSlider.value)
+        ]
+        EDQueue.sharedInstance().enqueueWithData(data, forTask: "seed")
+      }
+    });
+  }
+  
+  
+  func queue(queue: EDQueue!, processJob job: NSDictionary, completion block: ((EDQueueResult) -> Void)? ) {
+    NSLog("GOT JOB: \(job)")
+    let jobTask : String = job.valueForKey("task") as String
+    var aJob : CBAsyncJob?
+    switch  jobTask {
+      case "seed":
+        aJob = CBSeedJob()
+      case "delete_contacts":
+        aJob = CBDeleteContactsJob()
+    case "create_contact":
+      aJob = CBCreateContactJob()
+    case "create_photo":
+      aJob = CBCreatePhotoJob()
+      default:
+        aJob = nil
+        NSLog("CANNOT HANDLE JOB: \(job)")
+    }
+    if aJob {
+      aJob!.data = job.valueForKey("data") as Dictionary
+      aJob!.performWithCompletion({
+        (result: EDQueueResult) -> Void in
+        block!(result)
+      })
+    } else {
+      block!(EDQueueResultSuccess)
+    }
+  }
+  
 }
-

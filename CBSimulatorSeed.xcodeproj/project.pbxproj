@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		282503721947324000831F09 /* CBAsyncJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282503711947324000831F09 /* CBAsyncJob.swift */; };
+		282503741947353800831F09 /* CBSeedJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282503731947353800831F09 /* CBSeedJob.swift */; };
 		283E54841946FF7E00F756A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E54831946FF7E00F756A9 /* AppDelegate.swift */; };
-		283E54861946FF7E00F756A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E54851946FF7E00F756A9 /* ViewController.swift */; };
 		283E54891946FF7E00F756A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 283E54871946FF7E00F756A9 /* Main.storyboard */; };
 		283E548B1946FF7E00F756A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283E548A1946FF7E00F756A9 /* Images.xcassets */; };
 		283E54971946FF7E00F756A9 /* CBSimulatorSeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E54961946FF7E00F756A9 /* CBSimulatorSeedTests.swift */; };
+		283E54A11947015400F756A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283E54A01947015400F756A9 /* ViewController.swift */; };
+		28CB9AF0194747B200B76CC6 /* CBDeleteContactsJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB9AEF194747B200B76CC6 /* CBDeleteContactsJob.swift */; };
+		28CB9AF219474D7000B76CC6 /* CBCreateContactJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB9AF119474D7000B76CC6 /* CBCreateContactJob.swift */; };
+		28CB9AF61947560B00B76CC6 /* RHPerson+CBSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CB9AF51947560B00B76CC6 /* RHPerson+CBSS.m */; };
+		28CB9AF819478DEF00B76CC6 /* CBCreatePhotoJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28CB9AF719478DEF00B76CC6 /* CBCreatePhotoJob.swift */; };
+		28CB9AFA194791A700B76CC6 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28CB9AF9194791A700B76CC6 /* AssetsLibrary.framework */; };
+		810C3589B2414714BDC3F4DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2524E45930054B8F9B232C6B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,15 +33,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2524E45930054B8F9B232C6B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		282503711947324000831F09 /* CBAsyncJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBAsyncJob.swift; sourceTree = "<group>"; };
+		282503731947353800831F09 /* CBSeedJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBSeedJob.swift; sourceTree = "<group>"; };
 		283E547E1946FF7E00F756A9 /* CBSimulatorSeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CBSimulatorSeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283E54821946FF7E00F756A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		283E54831946FF7E00F756A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		283E54851946FF7E00F756A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		283E54881946FF7E00F756A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		283E548A1946FF7E00F756A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		283E54901946FF7E00F756A9 /* CBSimulatorSeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBSimulatorSeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		283E54951946FF7E00F756A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		283E54961946FF7E00F756A9 /* CBSimulatorSeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBSimulatorSeedTests.swift; sourceTree = "<group>"; };
+		283E54A01947015400F756A9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		284CB95E194724FC00B9D69A /* CBSimulatorSeed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBSimulatorSeed-Bridging-Header.h"; sourceTree = "<group>"; };
+		28CB9AEF194747B200B76CC6 /* CBDeleteContactsJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBDeleteContactsJob.swift; sourceTree = "<group>"; };
+		28CB9AF119474D7000B76CC6 /* CBCreateContactJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBCreateContactJob.swift; sourceTree = "<group>"; };
+		28CB9AF31947560B00B76CC6 /* CBSimulatorSeed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBSimulatorSeed-Bridging-Header.h"; sourceTree = "<group>"; };
+		28CB9AF41947560B00B76CC6 /* RHPerson+CBSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RHPerson+CBSS.h"; sourceTree = "<group>"; };
+		28CB9AF51947560B00B76CC6 /* RHPerson+CBSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RHPerson+CBSS.m"; sourceTree = "<group>"; };
+		28CB9AF719478DEF00B76CC6 /* CBCreatePhotoJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBCreatePhotoJob.swift; sourceTree = "<group>"; };
+		28CB9AF9194791A700B76CC6 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		52D1A0D91AF34DEE9A4F9294 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28CB9AFA194791A700B76CC6 /* AssetsLibrary.framework in Frameworks */,
+				810C3589B2414714BDC3F4DC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +76,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		282503701947321C00831F09 /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				282503711947324000831F09 /* CBAsyncJob.swift */,
+				282503731947353800831F09 /* CBSeedJob.swift */,
+				28CB9AEF194747B200B76CC6 /* CBDeleteContactsJob.swift */,
+				28CB9AF119474D7000B76CC6 /* CBCreateContactJob.swift */,
+				28CB9AF719478DEF00B76CC6 /* CBCreatePhotoJob.swift */,
+			);
+			name = Jobs;
+			sourceTree = "<group>";
+		};
 		283E54751946FF7E00F756A9 = {
 			isa = PBXGroup;
 			children = (
 				283E54801946FF7E00F756A9 /* CBSimulatorSeed */,
 				283E54931946FF7E00F756A9 /* CBSimulatorSeedTests */,
 				283E547F1946FF7E00F756A9 /* Products */,
+				52D1A0D91AF34DEE9A4F9294 /* Pods.xcconfig */,
+				2DD4EEF4609E4BB4A1EE7786 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,11 +111,13 @@
 		283E54801946FF7E00F756A9 /* CBSimulatorSeed */ = {
 			isa = PBXGroup;
 			children = (
+				282503701947321C00831F09 /* Jobs */,
 				283E54831946FF7E00F756A9 /* AppDelegate.swift */,
-				283E54851946FF7E00F756A9 /* ViewController.swift */,
+				283E54A01947015400F756A9 /* ViewController.swift */,
 				283E54871946FF7E00F756A9 /* Main.storyboard */,
 				283E548A1946FF7E00F756A9 /* Images.xcassets */,
 				283E54811946FF7E00F756A9 /* Supporting Files */,
+				284CB95E194724FC00B9D69A /* CBSimulatorSeed-Bridging-Header.h */,
 			);
 			path = CBSimulatorSeed;
 			sourceTree = "<group>";
@@ -88,6 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				283E54821946FF7E00F756A9 /* Info.plist */,
+				28CB9AF41947560B00B76CC6 /* RHPerson+CBSS.h */,
+				28CB9AF51947560B00B76CC6 /* RHPerson+CBSS.m */,
+				28CB9AF31947560B00B76CC6 /* CBSimulatorSeed-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -109,6 +150,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2DD4EEF4609E4BB4A1EE7786 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28CB9AF9194791A700B76CC6 /* AssetsLibrary.framework */,
+				2524E45930054B8F9B232C6B /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -116,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 283E549A1946FF7E00F756A9 /* Build configuration list for PBXNativeTarget "CBSimulatorSeed" */;
 			buildPhases = (
+				6B91F50582FD4387B9A36240 /* Check Pods Manifest.lock */,
 				283E547A1946FF7E00F756A9 /* Sources */,
 				283E547B1946FF7E00F756A9 /* Frameworks */,
 				283E547C1946FF7E00F756A9 /* Resources */,
+				C21A6938F4C14736B6AD7C35 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -158,6 +210,7 @@
 				TargetAttributes = {
 					283E547D1946FF7E00F756A9 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = VMD74XU962;
 					};
 					283E548F1946FF7E00F756A9 = {
 						CreatedOnToolsVersion = 6.0;
@@ -203,13 +256,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6B91F50582FD4387B9A36240 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C21A6938F4C14736B6AD7C35 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		283E547A1946FF7E00F756A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283E54861946FF7E00F756A9 /* ViewController.swift in Sources */,
+				283E54A11947015400F756A9 /* ViewController.swift in Sources */,
 				283E54841946FF7E00F756A9 /* AppDelegate.swift in Sources */,
+				282503721947324000831F09 /* CBAsyncJob.swift in Sources */,
+				28CB9AF0194747B200B76CC6 /* CBDeleteContactsJob.swift in Sources */,
+				282503741947353800831F09 /* CBSeedJob.swift in Sources */,
+				28CB9AF61947560B00B76CC6 /* RHPerson+CBSS.m in Sources */,
+				28CB9AF219474D7000B76CC6 /* CBCreateContactJob.swift in Sources */,
+				28CB9AF819478DEF00B76CC6 /* CBCreatePhotoJob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +354,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -281,6 +374,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "CBSimulatorSeed/CBSimulatorSeed-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,6 +399,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -317,6 +412,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "CBSimulatorSeed/CBSimulatorSeed-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -324,23 +420,38 @@
 		};
 		283E549B1946FF7E00F756A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52D1A0D91AF34DEE9A4F9294 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = CBSimulatorSeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CBSimulatorSeed/CBSimulatorSeed-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		283E549C1946FF7E00F756A9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52D1A0D91AF34DEE9A4F9294 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = CBSimulatorSeed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CBSimulatorSeed/CBSimulatorSeed-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -399,6 +510,7 @@
 				283E549C1946FF7E00F756A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		283E549D1946FF7E00F756A9 /* Build configuration list for PBXNativeTarget "CBSimulatorSeedTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +519,7 @@
 				283E549F1946FF7E00F756A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
