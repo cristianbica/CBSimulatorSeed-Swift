@@ -17,7 +17,7 @@ class CBCreateContactJob: CBAsyncJob {
       populatePerson(p)
     }
     ab.save()
-    block(result: EDQueueResultSuccess)
+    block(result: EDQueueResult.Success)
   }
   
   func populatePerson(person: RHPerson) {
@@ -26,7 +26,7 @@ class CBCreateContactJob: CBAsyncJob {
     person.lastName = MBFakerName.lastName()
     if probably(5)   {  person.prefix = MBFakerName.prefix() }
     if probably(5)   {  person.nickname = MBFakerInternet.userName() }
-    if probably(95)  {  person.addPhone(MBFakerPhoneNumber.phoneNumber(), label:kABPersonPhoneMainLabel) }
+    if probably(95)  {  person.addPhone(MBFakerPhoneNumber.phoneNumber(), label:kABPersonPhoneMainLabel! as String) }
     if probably(20)  {  person.addPhone(MBFakerPhoneNumber.phoneNumber(), label:nil) }
     if probably(60)  {  person.addEmail(MBFakerInternet.safeEmail(), label: nil) }
     if probably(30)  {  person.addEmail(MBFakerInternet.safeEmail(), label: nil) }
@@ -38,8 +38,8 @@ class CBCreateContactJob: CBAsyncJob {
     person.organization = MBFakerCompany.name()
       .stringByReplacingOccurrencesOfString(" address.suffix", withString: "")
       .stringByAppendingString(" ").stringByAppendingString(MBFakerCompany.suffix())
-    person.addPhone(MBFakerPhoneNumber.phoneNumber(), label:kABPersonPhoneMainLabel)
-    person.addPhone(MBFakerPhoneNumber.phoneNumber(), label:kABPersonPhoneHomeFAXLabel)
+    person.addPhone(MBFakerPhoneNumber.phoneNumber(), label:kABPersonPhoneMainLabel! as String)
+    person.addPhone(MBFakerPhoneNumber.phoneNumber(), label:kABPersonPhoneHomeFAXLabel! as String)
     person.setImage(fetchOrganisationImage())
   }
   
@@ -48,11 +48,11 @@ class CBCreateContactJob: CBAsyncJob {
   }
   
   func fetchPersonImage() -> UIImage {
-    return UIImage(data: NSData(contentsOfURL: NSURL.URLWithString("http://lorempixel.com/320/320/people/")))
+    return UIImage(data: NSData(contentsOfURL: NSURL(string: "http://lorempixel.com/320/320/people/")!)!)!
   }
   
   func fetchOrganisationImage() -> UIImage {
-    return UIImage(data: NSData(contentsOfURL: NSURL.URLWithString("http://lorempixel.com/320/320/business/")))
+    return UIImage(data: NSData(contentsOfURL: NSURL(string: "http://lorempixel.com/320/320/business/")!)!)!
   }
 
 }

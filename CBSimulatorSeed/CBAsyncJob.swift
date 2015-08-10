@@ -18,7 +18,7 @@ class CBAsyncJob {
   }
   
   func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
-    block(result: EDQueueResultSuccess);
+    block(result: EDQueueResult.Success);
   }
   
 }

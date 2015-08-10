@@ -10,25 +10,25 @@ import UIKit
 
 class ViewController: UITableViewController, EDQueueDelegate {
 
-  @IBOutlet var deleteContactsSwitch : UISwitch
-  @IBOutlet var contactsCountLabel : UILabel
-  @IBOutlet var contactsSlider : UISlider
-  @IBOutlet var photosCountLabel : UILabel
-  @IBOutlet var photosSlider : UISlider
+  @IBOutlet var deleteContactsSwitch : UISwitch?
+  @IBOutlet var contactsCountLabel : UILabel?
+  @IBOutlet var contactsSlider : UISlider?
+  @IBOutlet var photosCountLabel : UILabel?
+  @IBOutlet var photosSlider : UISlider?
   
   var totalJobs : Int = 0
   var doneJobs : Int = 0
   
   @IBAction func contactsCountSliderValueChanged(sender : AnyObject) {
-    var val = roundf(self.contactsSlider.value)
-    contactsSlider.value = val
-    contactsCountLabel.text = String(Int(val))
+    var val = roundf(self.contactsSlider!.value)
+    contactsSlider!.value = val
+    contactsCountLabel!.text = String(Int(val))
   }
   
   @IBAction func photosCountSliderValueChanged(sender : AnyObject) {
-    var val = roundf(self.photosSlider.value)
-    photosSlider.value = val
-    photosCountLabel.text = String(Int(val))
+    var val = roundf(self.photosSlider!.value)
+    photosSlider!.value = val
+    photosCountLabel!.text = String(Int(val))
   }
   
   override func viewDidLoad() {
@@ -38,13 +38,13 @@ class ViewController: UITableViewController, EDQueueDelegate {
     EDQueue.sharedInstance().start()
     NSNotificationCenter.defaultCenter().addObserverForName(EDQueueJobDidSucceed, object: nil, queue: nil, usingBlock:{
       (notification: NSNotification!) -> () in
-      let jobTask : String = notification.object.valueForKey("task") as String
+      let jobTask : String = notification.object!.valueForKey("task") as! String
       switch  jobTask {
       case "seed":
-        SVProgressHUD.showWithMaskType(SVProgressHUDMaskTypeGradient)
-        self.totalJobs = self.deleteContactsSwitch.on ? 1 : 0
-        self.totalJobs += Int(self.contactsSlider.value)
-        self.totalJobs += Int(self.photosSlider.value)
+        SVProgressHUD.showWithMaskType(SVProgressHUDMaskType.Gradient)
+        self.totalJobs = self.deleteContactsSwitch!.on ? 1 : 0
+        self.totalJobs += Int(self.contactsSlider!.value)
+        self.totalJobs += Int(self.photosSlider!.value)
         self.doneJobs = 0
       case "seed_done":
         SVProgressHUD.dismiss()
@@ -52,13 +52,13 @@ class ViewController: UITableViewController, EDQueueDelegate {
         self.doneJobs++
         SVProgressHUD.showProgress(Float(self.doneJobs) / Float(self.totalJobs),
           status: "Task \(self.doneJobs) of \(self.totalJobs)",
-          maskType: SVProgressHUDMaskTypeGradient)
+          maskType: SVProgressHUDMaskType.Gradient)
       }
     })
   }
   
-  override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-    if tableView.cellForRowAtIndexPath(indexPath).tag == 501 {
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    if tableView.cellForRowAtIndexPath(indexPath)!.tag == 501 {
       seed()
     }
   }
@@ -69,19 +69,17 @@ class ViewController: UITableViewController, EDQueueDelegate {
       (granted: Bool, error: NSError!) -> () in
       if granted {
         var data = [
-          "delete-contacts": Int(self.deleteContactsSwitch.on),
-          "contacts": Int(self.contactsSlider.value),
-          "photos": Int(self.photosSlider.value)
+          "delete-contacts": Int(self.deleteContactsSwitch!.on),
+          "contacts": Int(self.contactsSlider!.value),
+          "photos": Int(self.photosSlider!.value)
         ]
         EDQueue.sharedInstance().enqueueWithData(data, forTask: "seed")
       }
     });
   }
-  
-  
-  func queue(queue: EDQueue!, processJob job: NSDictionary, completion block: ((EDQueueResult) -> Void)? ) {
+  func queue(queue: EDQueue!, processJob job: [NSObject : AnyObject]!, completion block: EDQueueCompletionBlock!) {
     NSLog("GOT JOB: \(job)")
-    let jobTask : String = job.valueForKey("task") as String
+    let jobTask : String = job["task"] as! String
     var aJob : CBAsyncJob?
     switch  jobTask {
       case "seed":
@@ -96,14 +94,14 @@ class ViewController: UITableViewController, EDQueueDelegate {
         aJob = nil
         NSLog("CANNOT HANDLE JOB: \(job)")
     }
-    if aJob {
-      aJob!.data = job.valueForKey("data") as Dictionary
+    if (aJob != nil) {
+      aJob!.data = job["data"] as! Dictionary
       aJob!.performWithCompletion({
         (result: EDQueueResult) -> Void in
         block!(result)
       })
     } else {
-      block!(EDQueueResultSuccess)
+      block!(EDQueueResult.Success)
     }
   }
   

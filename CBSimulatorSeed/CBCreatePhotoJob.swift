@@ -13,10 +13,10 @@ class CBCreatePhotoJob: CBAsyncJob {
 
   override func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
     var library : ALAssetsLibrary = ALAssetsLibrary()
-    var imageData : NSData = NSData(contentsOfURL: NSURL.URLWithString("http://lorempixel.com/640/960"))
+    var imageData : NSData = NSData(contentsOfURL: NSURL(string: "http://lorempixel.com/640/960")!)!
     library.writeImageDataToSavedPhotosAlbum(imageData, metadata: nil, completionBlock:{
       (assetURL: NSURL!, error: NSError!) -> Void in
-      block(result: EDQueueResultSuccess);
+      block(result: EDQueueResult.Success);
     })
   }
 

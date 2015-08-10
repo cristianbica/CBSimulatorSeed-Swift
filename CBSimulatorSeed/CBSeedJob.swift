@@ -27,7 +27,7 @@ class CBSeedJob: CBAsyncJob {
       }
       EDQueue.sharedInstance().enqueueWithData([:], forTask: "seed_done")
     })
-    block(result: EDQueueResultSuccess)
+    block(result: EDQueueResult.Success)
   }
 
 }
