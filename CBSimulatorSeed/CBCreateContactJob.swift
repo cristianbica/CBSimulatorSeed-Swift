@@ -10,7 +10,7 @@ class CBCreateContactJob: CBAsyncJob {
 
   override func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
     let ab = RHAddressBook()
-    var p = ab.newPersonInDefaultSource()
+    let p = ab.newPersonInDefaultSource()
     if probably(2) {
       populateOrganisation(p)
     } else {
