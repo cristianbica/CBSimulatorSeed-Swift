@@ -20,13 +20,13 @@ class ViewController: UITableViewController, EDQueueDelegate {
   var doneJobs : Int = 0
   
   @IBAction func contactsCountSliderValueChanged(sender : AnyObject) {
-    var val = roundf(self.contactsSlider!.value)
+    let val = roundf(self.contactsSlider!.value)
     contactsSlider!.value = val
     contactsCountLabel!.text = String(Int(val))
   }
   
   @IBAction func photosCountSliderValueChanged(sender : AnyObject) {
-    var val = roundf(self.photosSlider!.value)
+    let val = roundf(self.photosSlider!.value)
     photosSlider!.value = val
     photosCountLabel!.text = String(Int(val))
   }
@@ -37,7 +37,7 @@ class ViewController: UITableViewController, EDQueueDelegate {
     EDQueue.sharedInstance().empty()
     EDQueue.sharedInstance().start()
     NSNotificationCenter.defaultCenter().addObserverForName(EDQueueJobDidSucceed, object: nil, queue: nil, usingBlock:{
-      (notification: NSNotification!) -> () in
+      (notification: NSNotification) -> () in
       let jobTask : String = notification.object!.valueForKey("task") as! String
       switch  jobTask {
       case "seed":
@@ -64,11 +64,11 @@ class ViewController: UITableViewController, EDQueueDelegate {
   }
   
   func seed() {
-    var ab:RHAddressBook = RHAddressBook();
+    let ab:RHAddressBook = RHAddressBook();
     ab.requestAuthorizationWithCompletion({
       (granted: Bool, error: NSError!) -> () in
       if granted {
-        var data = [
+        let data = [
           "delete-contacts": Int(self.deleteContactsSwitch!.on),
           "contacts": Int(self.contactsSlider!.value),
           "photos": Int(self.photosSlider!.value)
