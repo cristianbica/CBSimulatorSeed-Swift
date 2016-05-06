@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Cristian Bica. All rights reserved.
 //
 
-#import <EDQueue.h>
-#import <SVProgressHUD.h>
-#import <MBFaker.h>
+#import <EDQueue/EDQueue.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <MBFaker/MBFaker.h>
 #import "RHPerson+CBSS.h"
-#import <AddressBook.h>
+#import <AddressBook/AddressBook.h>

@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Cristian Bica. All rights reserved.
 //
 
+import EDQueue
+
 class CBSeedJob: CBAsyncJob {
   
   override func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
