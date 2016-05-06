@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Cristian Bica. All rights reserved.
 //
 
-#import "RHPerson.h"
+#import "RHAddressBook/RHPerson.h"
 
 @interface RHPerson (CBSS)
 - (void)addEmail:(NSString *)email label:(NSString *)label;

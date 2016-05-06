@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Cristian Bica. All rights reserved.
 //
 
+import EDQueue
 import UIKit
 import AssetsLibrary
 

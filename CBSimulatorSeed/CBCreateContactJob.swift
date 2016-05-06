@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Cristian Bica. All rights reserved.
 //
 
+import EDQueue
+import RHAddressBook
+import MBFaker
+
 class CBCreateContactJob: CBAsyncJob {
 
   override func performWithCompletion(block: ((result: EDQueueResult) -> Void)) {
